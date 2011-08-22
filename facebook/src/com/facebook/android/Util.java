@@ -50,7 +50,7 @@ public final class Util {
     /**
      * Generate the multi-part post body providing the parameters and boundary
      * string
-     * 
+     *
      * @param parameters the parameters need to be posted
      * @param boundary the random string as boundary
      * @return a string of the post body
@@ -93,8 +93,10 @@ public final class Util {
             String array[] = s.split("&");
             for (String parameter : array) {
                 String v[] = parameter.split("=");
-                params.putString(URLDecoder.decode(v[0]),
+                if (v.length>1) {
+                    params.putString(URLDecoder.decode(v[0]),
                                  URLDecoder.decode(v[1]));
+                }
             }
         }
         return params;
@@ -119,7 +121,7 @@ public final class Util {
         }
     }
 
-    
+
     /**
      * Connect to an HTTP URL and return the response as a string.
      *
