@@ -93,7 +93,7 @@ public final class Util {
             String array[] = s.split("&");
             for (String parameter : array) {
                 String v[] = parameter.split("=");
-                if (v.length>1) {
+                if (v.length > 1) {
                     params.putString(URLDecoder.decode(v[0]),
                                  URLDecoder.decode(v[1]));
                 }
